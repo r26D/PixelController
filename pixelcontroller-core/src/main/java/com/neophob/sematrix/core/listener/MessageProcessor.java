@@ -469,12 +469,14 @@ public enum MessageProcessor {
                 case RANDOM: // enable or disable random mode
                     try {
                         String onOrOff = msg[1];
-                        if (ON.equalsIgnoreCase(onOrOff)) {
+
+                        if (ON.equalsIgnoreCase(onOrOff) || "1.0".equalsIgnoreCase(onOrOff) 
+                        	|| "1".equalsIgnoreCase(onOrOff)) {
                             col.setRandomPresetMode(false);
                             col.setRandomMode(true);
                             LOG.log(Level.INFO, "Random Mode enabled");
-                        }
-                        if (OFF.equalsIgnoreCase(onOrOff)) {
+                        } else {
+                       
                             col.setRandomPresetMode(false);
                             col.setRandomMode(false);
                             LOG.log(Level.INFO, "Random Mode disabled");
@@ -487,12 +489,12 @@ public enum MessageProcessor {
                 case RANDOM_PRESET_MODE:
                     try {
                         String onOrOff = msg[1];
-                        if (ON.equalsIgnoreCase(onOrOff)) {
+                        if (ON.equalsIgnoreCase(onOrOff) || "1.0".equalsIgnoreCase(onOrOff) 
+                        	|| "1".equalsIgnoreCase(onOrOff)) {
                             col.setRandomMode(false);
                             col.setRandomPresetMode(true);
                             LOG.log(Level.INFO, "Random Preset Mode enabled");
-                        }
-                        if (OFF.equalsIgnoreCase(onOrOff)) {
+                        } else {
                             col.setRandomMode(false);
                             col.setRandomPresetMode(false);
                             LOG.log(Level.INFO, "Random Preset Mode disabled");
