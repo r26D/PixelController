@@ -476,7 +476,6 @@ public enum MessageProcessor {
                             col.setRandomMode(true);
                             LOG.log(Level.INFO, "Random Mode enabled");
                         } else {
-                       
                             col.setRandomPresetMode(false);
                             col.setRandomMode(false);
                             LOG.log(Level.INFO, "Random Mode disabled");
